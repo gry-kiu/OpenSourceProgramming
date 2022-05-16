@@ -26,12 +26,12 @@ void Swap(int arr[], int i1, int i2) {
 void BucketSort(int arr[], int size, int range) {
   int *count = (int *)calloc(range, sizeof(int));
   for (int i = 0; i < size; i++) {
-    count[arr[i]]++;
+    count[arr[i] - 1]++;
   }
   int j = 0;
   for (int i = 0; i < range; i++) {
     for (; count[i] > 0; count[i]--) {
-      arr[j++] = i;
+      arr[j++] = i + 1;
     }
   }
   free(count);

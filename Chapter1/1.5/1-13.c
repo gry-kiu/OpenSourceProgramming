@@ -20,7 +20,7 @@ int MaxPathSum(int arr1[], int size1, int arr2[], int size2) {
       sum1 = 0;
       sum2 = 0;
       i += 1;
-      j += 2;
+      j += 1;
     }
   }
   while (i < size1) {
