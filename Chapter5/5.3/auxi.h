@@ -7,6 +7,9 @@ void PrintArray(int arr[], int size);
 void Swap(int arr[], int i1, int i2);
 void QuickSortUtil(int arr[], int lower, int upper);
 void QuickSort(int arr[], int size);
+void QuickSortUtil_Desc(int arr[], int lower, int upper);
+void QuickSort_Desc(int arr[], int size);
 int BinarySearch(int arr[], int size, int value);
+int BinarySearch_Desc(int arr[], int size, int value);
 
 #endif

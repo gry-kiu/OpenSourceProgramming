@@ -52,6 +52,34 @@ void QuickSort(int arr[], int size) {
   QuickSortUtil(arr, 0, size - 1);
 }
 
+void QuickSortUtil_Desc(int arr[], int lower, int upper) {
+  if (lower >= upper) {
+    return;
+  }
+  int pivot = arr[lower];
+  int start = lower, stop = upper;
+
+  while (lower < upper) {
+    while (arr[lower] >= pivot) {
+      lower++;
+    }
+    while (arr[upper] < pivot) {
+      upper--;
+    }
+    if (lower < upper) {
+      Swap(arr, lower, upper);
+    }
+  }
+
+  Swap(arr, start, upper);
+  QuickSortUtil_Desc(arr, start, upper - 1);
+  QuickSortUtil_Desc(arr, upper + 1, stop);
+}
+
+void QuickSort_Desc(int arr[], int size) {
+  QuickSortUtil_Desc(arr, 0, size - 1);
+}
+
 int BinarySearch(int arr[], int size, int value) {
   int low = 0, high = size - 1;
   while (low <= high) {
@@ -59,6 +87,21 @@ int BinarySearch(int arr[], int size, int value) {
     if (arr[mid] == value) {
       return 1;
     } else if (arr[mid] < value) {
+      low = mid + 1;
+    } else {
+      high = mid - 1;
+    }
+  }
+  return 0;
+}
+
+int BinarySearch_Desc(int arr[], int size, int value) {
+  int low = 0, high = size - 1;
+  while (low <= high) {
+    int mid = low + (high - low) / 2;
+    if (arr[mid] == value) {
+      return 1;
+    } else if (arr[mid] > value) {
       low = mid + 1;
     } else {
       high = mid - 1;
