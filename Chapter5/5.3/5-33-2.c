@@ -11,7 +11,7 @@ int MaxProfit(int stocks[], int size) {
     int profit = stocks[i] - stocks[minIndex];
     if (profit > maxProfit) {
       buy = minIndex, sell = i;
-      maxProfit = stocks[i] - stocks[minIndex];
+      maxProfit = profit;
     }
   }
   printf("Date of buying: %d, price: %d\n", buy, stocks[buy]);
