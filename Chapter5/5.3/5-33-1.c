@@ -5,9 +5,10 @@ int MaxProfit(int stocks[], int size) {
   int maxProfit = 0;
   for (int i = 0; i < size - 1; i++) {
     for (int j = i + 1; j < size; j++) {
-      if (stocks[j] - stocks[i] > maxProfit) {
+      int profit = stocks[j] - stocks[i];
+      if (profit > maxProfit) {
         buy = i, sell = j;
-        maxProfit = stocks[j] - stocks[i];
+        maxProfit = profit;
       }
     }
   }
